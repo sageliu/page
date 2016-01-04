@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-----------------------以下的布局是清除浏览器默认样式------------------------->
+    <link rel="stylesheet" href="css1/index1.css" type="text/css"/>
+    <style type="text/css" rel="stylesheet">
+        body {
+            background-color: #72A329;
+        }
+
+        /*---------------------以下的布局是对客服QQ，以及返回顶部的布局-----------------------*/
+        .right {
+            width: 20%;
+            height: 100%;
+        }
+
+        .code {
+            width: 150px;
+            height: 514px;
+            position: fixed;
+            right: 1%;
+            top: 5%;
+            background: url("images1/code.jpg") no-repeat center center;
+        }
+
+        .goToTop {
+            position: fixed;
+            bottom: 13%;
+            right: 3%;
+            width: 50px;
+            height: 50px;
+        }
+
+        .goToTop a {
+            display: block;
+            height: 50px;
+            background: url("images1/btnTop.png") no-repeat 100% 100%;
+            background-size: contain;
+        }
+
+        .animated {
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+
+        .animated.infinite {
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+        }
+
+        @-webkit-keyframes fadeOutUp {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+            }
+        }
+
+        @keyframes fadeOutUp {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+            }
+        }
+
+        .fadeOutUp {
+            -webkit-animation-name: fadeOutUp;
+            animation-name: fadeOutUp;
+        }
+
+        .goToTop div {
+            display: block;
+            background: #ccc;
+            text-align: center;
+        }
+
+        .goToTop div em {
+            word-wrap: break-word;
+            font-size: 16px;
+            height: 25px;
+            line-height: 25px;
+            font-weight: bold;
+        }
+
+        /*---------------------以下的布局是对二维码，以及视频的布局-----------------------*/
+        .left {
+            width: 20%;
+            height: 100%;
+        }
+
+        .service {
+            position: fixed;
+            top: 170px;
+            left: 1%;
+        }
+
+        @-webkit-keyframes flipInY {
+            from {
+                -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+                transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+                opacity: 0;
+            }
+
+            40% {
+                -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+                transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+
+            60% {
+                -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+                transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+                opacity: 1;
+            }
+
+            80% {
+                -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+                transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+            }
+
+            to {
+                -webkit-transform: perspective(400px);
+                transform: perspective(400px);
+            }
+        }
+
+        @keyframes flipInY {
+            from {
+                -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+                transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+                opacity: 0;
+            }
+
+            40% {
+                -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+                transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+
+            60% {
+                -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+                transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+                opacity: 1;
+            }
+
+            80% {
+                -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+                transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+            }
+
+            to {
+                -webkit-transform: perspective(400px);
+                transform: perspective(400px);
+            }
+        }
+
+        .flipInY {
+            -webkit-backface-visibility: visible !important;
+            backface-visibility: visible !important;
+            -webkit-animation-name: flipInY;
+            animation-name: flipInY;
+        }
+
+        .movie {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            width: 226px;
+            height: 400px;
+            background: url("images1/movie.png") no-repeat center center;
+            z-index: -1;
+        }
+
+        /*---------------------以下的布局是对底部显示订购热线的布局-----------------------*/
+        .footer {
+            width: 100%;
+            height: 80px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background-color: #cb1224;
+        }
+
+        .tel-Img {
+            width: 70%;
+            height: 80px;
+            margin: 0 auto;
+            background: url("images1/dd.png") no-repeat center center;
+        }
+
+        /*---------------------以下的布局是对中间图片部分的布局-----------------------*/
+
+        .imgPublic {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .imgPublic img {
+            width: 100%;
+            margin-top: -5px;
+            background: url("images1/default.jpg") no-repeat center center;
+        }
+
+        .indent {
+            width: 1100px;
+            height: 192px;
+            margin: -5px auto;
+            background: url("images1/indent.jpg") no-repeat center center;
+        }
+        .sale{
+            width: 950px;
+            height: 25px;
+            background-color: #fff;
+            text-align: left;
+            margin: 5px auto;
+            position: relative;
+        }
+
+        .tra{
+            width: 100%;
+            height: 0;
+            border-top: 1px solid #0c0;
+            top:70px;
+            left: 0;
+            position: absolute;
+        }
+        .eve{
+            width: 0;
+            height: 500px;
+            border-left: 1px solid #0c0;
+            top: 0;
+            left: 615px;
+            position: absolute;
+        }
+        .leftP{
+            width: 340px;
+            height: 60px;
+            top:10px;
+            left:10px;
+            background: url("images1/titab.gif") no-repeat;
+            background-position: 0 0;
+            position: absolute;
+        }
+        .rightP{
+            width: 340px;
+            height: 60px;
+            top:10px;
+            left:625px;
+            background: url("images1/titab.gif") no-repeat;
+            background-position:  0 -61px;
+            position: absolute;
+        }
+        .wffahuo1{
+            width: 320px;
+            height:380px;
+            margin: 15px auto;
+            top:80px;
+            left:625px;
+            position: absolute;
+            overflow: hidden;
+            font-size: 12px;
+            line-height: 20px;
+        }
+        
+        iframe{
+            height: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="css1/wf.css"/>
+</head>
+<body>
+<!--这里是中间图片区域的内容-->
+<div class="imgPublic" id="photoBox"></div>
+<div class="indent"></div>
+<!--这里是购买信息展示区域的内容-->
+<div class="sale">
+    <div class="tra"></div>
+    <div class="eve"></div>
+    <div class="leftP"></div>
+    <div class="rightP"></div>
+    <div id="wforder">
+        <div class="wfwarp">
+            <div class="wforderl">
+                <div class="wfforml" id="wfforml">
+                    <div class="wfrxian">
+                        <form id="wfform" name="wfform" action="../wforder.php?wfrnma=a4a6c0982a43eb197aa5"
+                              method="post" onsubmit="return postcheck()" target="_parent">
+                            <input type="hidden" name="WFDDURL" id="WFDDURL" value="http://xbbaidu.cn/ermaixuantong/">
+                            <input type="hidden" name="wfrnmb" value="9b867b58a940944d9189">
+                            <input type="hidden" name="wfmun" value="1">
+                            <input type="hidden" name="wfprice" value="698">
+
+                            <div class="wftitlea"></div>
+                            <div class="wfbdbox">
+                                <label class="wfbdxx"><em>*</em>选择产品</label>
+
+                                <div class="wfdxbox red">
+                                    <input type="radio" name="wfproduct" id="wfproduct1"
+                                           value="珥脉玄通 一周期 3盒（30天量）包邮  380元" alt="380" onclick="pricea()"><label
+                                        for="wfproduct1">珥脉玄通 一周期 3盒（30天量）包邮 380元</label><br>
+                                    <input type="radio" checked="" name="wfproduct" id="wfproduct2"
+                                           value="珥脉玄通 两周期 6盒（60天量）包邮  740元 " alt="740" onclick="pricea()"><label
+                                        for="wfproduct2">珥脉玄通 两周期 6盒（60天量）包邮 740元 <img
+                                        src="images1/hot.gif"></label><br>
+                                    <input type="radio" name="wfproduct" id="wfproduct3"
+                                           value="珥脉玄通 三周期 9盒（90天量）包邮  1100元 " alt="1100" onclick="pricea()"><label
+                                        for="wfproduct3">珥脉玄通 三周期 9盒（90天量）包邮 1100元 </label><br>
+                                    <input type="radio" name="wfproduct" id="wfproduct4"
+                                           value="珥脉玄通 四周期 12盒（120天量）包邮  1460元" alt="1460" onclick="pricea()"><label
+                                        for="wfproduct4">珥脉玄通 四周期 12盒（120天量）包邮 1460元</label><br>
+                                </div>
+                            </div>
+                            <div class="wfbdbox">
+                                <label class="wfbdxx"><em>*</em>收货人姓名</label>
+
+                                <div class="wftextbox">
+                                    <input type="text" name="wfname">
+                                </div>
+                            </div>
+                            <div class="wfbdbox">
+                                <label class="wfbdxx"><em>*</em>手机号码</label>
+
+                                <div class="wftextbox">
+                                    <input type="text" name="wfmob">
+                                </div>
+                            </div>
+                            <div class="wfbdbox">
+                                <label class="wfbdxx"><em>*</em>所在地区</label>
+
+                                <div class="wfxlbox">
+                                    <select name="wfprovince" class="wfdqxl">
+                                        <option value="">请选择省份</option>
+                                        <option value="北京市">北京市</option>
+                                        <option value="天津市">天津市</option>
+                                        <option value="河北省">河北省</option>
+                                        <option value="山西省">山西省</option>
+                                        <option value="内蒙古自治区">内蒙古自治区</option>
+                                        <option value="辽宁省">辽宁省</option>
+                                        <option value="吉林省">吉林省</option>
+                                        <option value="黑龙江省">黑龙江省</option>
+                                        <option value="上海市">上海市</option>
+                                        <option value="江苏省">江苏省</option>
+                                        <option value="浙江省">浙江省</option>
+                                        <option value="安徽省">安徽省</option>
+                                        <option value="福建省">福建省</option>
+                                        <option value="江西省">江西省</option>
+                                        <option value="山东省">山东省</option>
+                                        <option value="河南省">河南省</option>
+                                        <option value="湖北省">湖北省</option>
+                                        <option value="湖南省">湖南省</option>
+                                        <option value="广东省">广东省</option>
+                                        <option value="广西壮族自治区">广西壮族自治区</option>
+                                        <option value="海南省">海南省</option>
+                                        <option value="重庆市">重庆市</option>
+                                        <option value="四川省">四川省</option>
+                                        <option value="贵州省">贵州省</option>
+                                        <option value="云南省">云南省</option>
+                                        <option value="西藏自治区">西藏自治区</option>
+                                        <option value="陕西省">陕西省</option>
+                                        <option value="甘肃省">甘肃省</option>
+                                        <option value="青海省">青海省</option>
+                                        <option value="宁夏回族自治区">宁夏回族自治区</option>
+                                        <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+                                        <option value="香港特别行政区">香港特别行政区</option>
+                                        <option value="澳门特别行政区">澳门特别行政区</option>
+                                        <option value="台湾省">台湾省</option>
+                                    </select><select name="wfcity" class="wfdqxl">
+                                    <option value="">请选择城市</option>
+                                </select><select name="wfarea" class="wfdqxl">
+                                    <option value="">请选择地区</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="wfbdbox">
+                                <label class="wfbdxx"><em>*</em>详细地址</label>
+
+                                <div class="wftextbox">
+                                    <input type="text" name="wfaddress">
+                                </div>
+                            </div>
+                            <div class="wfbdbox">
+                                <label class="wfbdxx"><em>*</em>付款方式</label>
+
+                                <div class="wfdxbox">
+                                    <input type="radio" checked="checked" name="wfpay" id="wfpay1" value="cod"
+                                           onclick="opay();return changeItem(0);"><label for="wfpay1"><img
+                                        src="images1/fka.gif"></label>
+                                    <input type="radio" name="wfpay" id="wfpay2" value="alipay"
+                                           onclick="opay2();return changeItem(1);"><label for="wfpay2"><img
+                                        src="images1/fkb.gif"></label>
+                                    <input type="radio" name="wfpay" id="wfpay3" value="bank"
+                                           onclick="opay();return changeItem(2);"><label for="wfpay3"><img
+                                        src="images1/fkc.gif"></label>
+                                </div>
+                            </div>
+                            <div class="wfbdbox">
+                                <div id="paydiv0" class="wfpayps">
+                                    <p><img src="images1/fkat.gif"></p>
+                                </div>
+                                <div id="paydiv1" class="wfpayps" style="display:none;">
+                                    <p><img src="images1/fkbt.gif"></p>
+                                </div>
+                                <div id="paydiv2" class="wfpayps" style="display:none;">
+                                    <p><img src="images1/fkct.gif"></p>
+                                </div>
+                            </div>
+                            <div class="wfbdbox">
+                                <label class="wfbdxx">留言</label>
+
+                                <div class="wftext2box">
+                                    <textarea name="wfguest" onfocus="if(value=='请尽快安排发货，送货之前手机联系，谢谢！'){value=''}"
+                                              onblur="if (value ==''){value='请尽快安排发货，送货之前手机联系，谢谢！'}">请尽快安排发货，送货之前手机联系，谢谢！</textarea>
+                                </div>
+                            </div>
+                            <div class="wfsubbox">
+                                <input type="submit" name="wfsubmit" value="立即提交订单">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wffahuo1" class="wffahuo1" >
+
+    </div>
+    <!--这里是底部订购热线的内容-->
+    <div class="footer">
+        <div class="tel-Img"></div>
+    </div>
+    <!--这里是右侧客服QQ以及返回顶部的内容-->
+    <div class="right">
+        <div class="code"></div>
+
+        <div class="goToTop animated infinite fadeOutUp">
+            <a href="#photoBox"></a>
+            <!--<div>-->
+            <!--<em>返回顶部</em>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <!--这里是左侧二维码以及视频的内容-->
+    <div class="left">
+        <a class="service animated infinite flipInY" target="_blank"
+           href="http://wpa.qq.com/msgrd?v=3&uin=413553374&site=qq&menu=yes"><img border="0" src="http://pub.idqqimg.com/qconn/wpa/button/button_131.gif" alt="在线客服，竭诚为您服务" title="在线客服，竭诚为您服务"/></a>
+        <div class="movie"></div>
+    </div>
+
+</body>
+</html>
+<script type="text/javascript" charset="utf-8" src="js1/photo.js"></script>
+<script type="text/javascript" src="js1/wfdd.js"></script>
+<iframe src="wfdd_01.php" width="100%" height="540" marginheight="0" marginwidth="0" frameborder="0"
+        scrolling="no"></iframe>
+
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F49acb029765a382ee1e2ccef2753b60e' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript" src="js1/wfbd.js"></script>
+<script type="text/javascript" src="js1/wfbq.js"></script>
+<script type="text/javascript" src="js1/wfdd.js"></script>
+<script type="text/javascript" src="js1/wf2.js"></script>
+<script type="text/javascript" src="js1/wfgd.js"></script>

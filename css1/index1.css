@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+    padding: 0;
+    margin: 0;
+}
+body {
+    color: #6a6a6a;
+    font-size: 14px;
+    font-family: "Microsoft YaHei","微软雅黑",Arial,Verdana;
+}
+input,textarea {
+    font-family: "Microsoft YaHei","微软雅黑",Arial,Verdana;
+}
+img {
+    border: none;
+}
+h1,h2,h3 {
+    font-weight: normal;
+}
+a {
+    transition: all .2s;
+    text-decoration: none;
+    color: #6a6a6a;
+}
+a:hover {
+    color: #499df2;
+}
+li {
+    list-style-type: none;
+}
